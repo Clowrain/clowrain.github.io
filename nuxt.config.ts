@@ -2,8 +2,11 @@
 export default defineNuxtConfig({
 
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   app: {
-        baseURL: 'https://clowrain.github.io/'
+        baseURL: '/'
+  },
+  nitro: {
+    preset: 'static'
   }
 })
