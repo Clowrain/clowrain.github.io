@@ -49,11 +49,11 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
 
       - name: Install pnpm (if needed)
-        if: steps.detect-package-manager.outputs.manager == 'pnpm'
-        run: npm install -g pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@8.15.5 --activate
 
       - name: Cache pnpm store (optional)
-        if: steps.detect-package-manager.outputs.manager == 'pnpm'
         uses: actions/cache@v4
         with:
           path: ~/.pnpm-store
